@@ -1,0 +1,12 @@
+#+title: my-spacemacs-configuration
+
+* Why I love and use spacemacs?
+
+- combind the advantages of vim and emacs
+- humanization design (such as use `SPC` as `<leader>`)
+- wonderful GUI
+
+* Command to run manaual (May be I don't know how to automatic)
+
+- =php-extras-generate-eldoc=
+- =pyim-dicts-manager=

@@ -1,5 +1,6 @@
 ;; -*- mode: emacs-lisp -*-
-;; This file is loaded by Spacemacs at startup. ;; It must be stored in your home directory.
+;; This file is loaded by Spacemacs at startup.
+;; It must be stored in your home directory.
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
@@ -22,21 +23,25 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
-     better-defaults
+     ;; better-defaults
+     (auto-completion :variables
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-snippets-in-popup t)
+     (chinese :variables
+              chinese-enable-youdao-dict t)
      emacs-lisp
      php
      go
-     java
-     chinese
-     dash
+     html
+     javascript
      games
-     ;; git
+     git
      markdown
      org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
      spell-checking
      syntax-checking
      version-control
@@ -207,21 +212,30 @@ user code."
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
 
-  ;; Set escape keybinding to "jk"
+  ;; Set escape keybinding to "jk" (Now I think `fd' is better)
   ;; (setq-default evil-escape-key-sequence "jk")
 
-  ;; access system clipboard
+  ;; My basic
+  (setq-default tab-width 4)
+
+  ;; Access system clipboard
   (spacemacs/declare-prefix "o" "mine")
   (evil-leader/set-key "oy" 'simpleclip-copy)
   (evil-leader/set-key "od" 'simpleclip-cut)
   (evil-leader/set-key "op" 'simpleclip-paste)
 
-  ;; global line numbers
+  ;; Global line numbers
   (global-linum-mode)
   (with-eval-after-load 'neotree
     (add-hook 'neotree-mode-hook
               (lambda () (with-current-buffer " *NeoTree*"
                            (setq-local linum-mode nil)))))
+
+  ;; Neotree
+  (setq neo-vc-integration nil)
+
+  ;; Set monospaced font size(设置等宽字体）TODO unusable
+  ;; (spacemacs//set-monospaced-font "Source Code Pro" "Hiragino Sans GB" 14 16)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -233,7 +247,10 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (simpleclip helm-flyspell flycheck-pos-tip flycheck diff-hl toc-org org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets mmm-mode markdown-toc markdown-mode htmlize gnuplot gh-md evil-org 2048-game emacs-eclim helm-dash pangu-spacing find-by-pinyin-dired chinese-pyim ace-pinyin phpunit phpcbf php-extras php-auto-yasnippets helm-c-yasnippet go-eldoc drupal-mode company-statistics company-quickhelp company-go company auto-yasnippet ac-ispell window-numbering volatile-highlights vi-tilde-fringe spray smooth-scrolling smartparens rainbow-delimiters powerline popwin popup pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-descbinds helm-ag helm google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-dictionary aggressive-indent adaptive-wrap ace-window ace-link evil-leader evil which-key quelpa package-build use-package bind-key s dash spacemacs-theme))))
+    (simpleclip helm-flyspell flycheck-pos-tip flycheck diff-hl toc-org org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets mmm-mode markdown-toc markdown-mode htmlize gnuplot gh-md evil-org 2048-game emacs-eclim helm-dash pangu-spacing find-by-pinyin-dired chinese-pyim ace-pinyin phpunit phpcbf php-extras php-auto-yasnippets helm-c-yasnippet go-eldoc drupal-mode company-statistics company-quickhelp company-go company auto-yasnippet ac-ispell window-numbering volatile-highlights vi-tilde-fringe spray smooth-scrolling smartparens rainbow-delimiters powerline popwin popup pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-descbinds helm-ag helm google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-dictionary aggressive-indent adaptive-wrap ace-window ace-link evil-leader evil which-key quelpa package-build use-package bind-key s dash spacemacs-theme)))
+ '(pyim-dicts
+   (quote
+    ((:name "BigDict-01" :file "/home/jmjoy/.emacs.d/.cache/pyim-bigdict.pyim" :coding utf-8-unix :dict-type pinyin-dict)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
