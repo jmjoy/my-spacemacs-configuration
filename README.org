@@ -1,4 +1,10 @@
-#+title: my-spacemacs-configuration
+#+TITLE: my-spacemacs-configuration
+
+* Initialization
+
+#+BEGIN_SRC sh
+  git clone https://github.com/jmjoy/my-spacemacs-configuration.git ~/.spacemacs.d/
+#+END_SRC
 
 * Why I love and use spacemacs?
 

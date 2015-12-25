@@ -26,7 +26,7 @@ values."
      ;; better-defaults
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
-                      auto-completion-enable-sort-by-usage t
+                      ;; auto-completion-enable-sort-by-usage t
                       auto-completion-enable-snippets-in-popup t)
      (chinese :variables
               chinese-enable-youdao-dict t)
@@ -105,7 +105,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Consolas"
+   dotspacemacs-default-font '("Source Code Pro"
                                :size 15
                                :weight normal
                                :width normal
@@ -240,7 +240,7 @@ layers configuration. You are free to put any user code."
   (setq neo-vc-integration nil)
 
   ;; Set monospaced font size(设置等宽字体）
-  (spacemacs//set-monospaced-font "Consolas" "文泉驿等宽微米黑" 15 16)
+  (spacemacs//set-monospaced-font "Source Code Pro for Powerline" "文泉驿等宽微米黑" 15 18)
 
   ;; go
   (setq gofmt-command "goimports")
