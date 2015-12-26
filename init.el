@@ -42,10 +42,9 @@ values."
      (shell :variables
             shell-default-height 60
             shell-default-position 'bottom)
-     spell-checking
+     ;; spell-checking
      syntax-checking
      version-control
-     my-php
      gtags
      )
    ;; List of additional packages that will be installed without being
@@ -55,7 +54,6 @@ values."
    dotspacemacs-additional-packages
    '(
      simpleclip
-     evil-easymotion
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -105,7 +103,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Consolas"
                                :size 15
                                :weight normal
                                :width normal
@@ -240,9 +238,14 @@ layers configuration. You are free to put any user code."
   (setq neo-vc-integration nil)
 
   ;; Set monospaced font size(设置等宽字体）
-  (spacemacs//set-monospaced-font "Source Code Pro for Powerline" "文泉驿等宽微米黑" 15 18)
+  (when (configuration-layer/layer-usedp 'chinese)
+    (when (spacemacs/system-is-linux)
+      (spacemacs//set-monospaced-font "Source Code Pro for Powerline" "文泉驿等宽微米黑" 15 18)))
 
   ;; go
   (setq gofmt-command "goimports")
+
+  ;; avy
+  (evil-leader/set-key "SPC" 'avy-goto-word-0)
 
 )
