@@ -31,6 +31,7 @@ values."
      (chinese :variables
               chinese-enable-youdao-dict t)
      emacs-lisp
+     semantic
      php
      go
      html
@@ -45,7 +46,7 @@ values."
      ;; spell-checking
      syntax-checking
      version-control
-     gtags
+     ;; gtags
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -225,7 +226,8 @@ layers configuration. You are free to put any user code."
   (spacemacs/declare-prefix "o" "personal-keybindings")
   (evil-leader/set-key "oy" 'simpleclip-copy)
   (evil-leader/set-key "od" 'simpleclip-cut)
-  (evil-leader/set-key "op" 'simpleclip-paste)
+  (evil-leader/set-key "op" 'my-system-clipboard/p)
+  (evil-leader/set-key "oP" 'simpleclip-paste)
 
   ;; Global line numbers
   (global-linum-mode)
@@ -251,3 +253,11 @@ layers configuration. You are free to put any user code."
   (setq avy-all-windows nil)
 
 )
+
+;; My func
+(defun my-system-clipboard/p ()
+  (interactive)
+  (save-excursion
+    (or (eq (point) (point-max))
+        (forward-char))
+    (simpleclip-paste)))
