@@ -242,7 +242,7 @@ layers configuration. You are free to put any user code."
   ;; Set monospaced font size(设置等宽字体）
   (when (configuration-layer/layer-usedp 'chinese)
     (when (spacemacs/system-is-linux)
-      (spacemacs//set-monospaced-font "Source Code Pro for Powerline" "文泉驿等宽微米黑" 15 18)))
+      (spacemacs//set-monospaced-font "Consolas" "文泉驿等宽微米黑" 15 16)))
 
   ;; go
   (setq gofmt-command "goimports")
