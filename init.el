@@ -111,7 +111,7 @@ values."
                                :size 15
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.4)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -257,6 +257,10 @@ layers configuration. You are free to put any user code."
 
   ;; youdao
   (evil-leader/set-key "os" 'youdao-dictionary-search-at-point+)
+
+  ;; phpdoc-enhance
+  ;; TODO make it to layer, I am study elisp now!
+  (load-file "./phpdocument.el")
 )
 
 ;; My func
