@@ -24,6 +24,8 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ;; better-defaults
+     (colors :variables colors-enable-nyan-cat-progress-bar t)
+     spacemacs-layouts
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
                       ;; auto-completion-enable-sort-by-usage t
@@ -36,6 +38,7 @@ values."
      go
      html
      javascript
+     nim
      games
      git
      markdown
@@ -252,6 +255,8 @@ layers configuration. You are free to put any user code."
   (setq avy-style 'at-full)
   (setq avy-all-windows nil)
 
+  ;; youdao
+  (evil-leader/set-key "os" 'youdao-dictionary-search-at-point+)
 )
 
 ;; My func
@@ -261,3 +266,19 @@ layers configuration. You are free to put any user code."
     (or (eq (point) (point-max))
         (forward-char))
     (simpleclip-paste)))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (rainbow-mode rainbow-identifiers youdao-dictionary xterm-color ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe use-package toc-org tagedit stickyfunc-enhance srefactor spacemacs-theme spaceline smooth-scrolling smeargle slim-mode simpleclip shell-pop scss-mode sass-mode restart-emacs rainbow-delimiters quelpa popwin phpunit phpcbf php-extras php-auto-yasnippets persp-mode pcre2el paradox pangu-spacing page-break-lines pacmacs orgit org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file nim-mode neotree multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme less-css-mode json-mode js2-refactor js-doc jade-mode info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio go-eldoc gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe git-gutter-fringe+ gh-md flycheck-pos-tip flycheck-nim flx-ido find-by-pinyin-dired fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-jumper evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu eshell-prompt-extras esh-help emmet-mode elisp-slime-nav drupal-mode diff-hl define-word company-web company-tern company-statistics company-quickhelp company-go coffee-mode clean-aindent-mode chinese-pyim buffer-move auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-pinyin ace-link ace-jump-helm-line ac-ispell 2048-game))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
