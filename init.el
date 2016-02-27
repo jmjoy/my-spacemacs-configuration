@@ -312,6 +312,10 @@ layers configuration. You are free to put any user code."
   (if (and (equal beg 0) (equal end 9))
       (print (list beg end))
     (evil-yank-characters beg end ?+)))
+    
+    
+  ;;;; expand-region
+  ;;(define-key evil-normal-state-map (kbd "RET") 'er/expand-region)
 
 
 (custom-set-variables
